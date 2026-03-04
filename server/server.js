@@ -9,11 +9,10 @@ const PORT = process.env.PORT || 5000;
 (async () => {
   await connectDB();
   app.listen(PORT, () => {
-    // eslint-disable-next-line no-console
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`✅ Server running on http://localhost:${PORT}`);
+    console.log(`📁 Connected to MongoDB: ${process.env.MONGODB_DB || 'healthmeet'}`);
   });
 })().catch((err) => {
-  // eslint-disable-next-line no-console
-  console.error("Failed to start server:", err.message);
+  console.error("❌ Failed to start server:", err.message);
   process.exit(1);
 });

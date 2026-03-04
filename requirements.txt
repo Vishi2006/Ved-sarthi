@@ -1,51 +1,50 @@
-# HealthMeet - Node.js Dependencies
-# This file documents the npm dependencies used in the HealthMeet project
-# 
-# Note: This project uses Node.js and npm for dependency management.
-# Use 'npm install' to install dependencies from package.json files.
-# 
-# For production deployment, ensure Node.js v16+ is installed.
+# HealthMeet - Project Requirements
 
-# Frontend Dependencies (client/package.json)
-# ============================================
-react==19.2.0
-react-dom==19.2.0
-react-router-dom==7.13.1
-tailwindcss==4.2.1
-@tailwindcss/vite==4.2.1
+This is a Node.js project split into a frontend (`client`) and a backend (`server`). 
+To run this code, you do NOT need a Python `requirements.txt`. Instead, you will use `npm install` to install the Node packages from the `package.json` files.
 
-# Frontend Dev Dependencies (client/package.json)
-# ===============================================
-vite==7.3.1
-@vitejs/plugin-react==5.1.1
-eslint==9.39.1
-@eslint/js==9.39.1
-eslint-plugin-react-hooks==7.0.1
-eslint-plugin-react-refresh==0.4.24
-@types/react==19.2.7
-@types/react-dom==19.2.3
-globals==16.5.0
+## System Requirements
+- Node.js (v18.x or higher recommended)
+- npm (comes with Node.js)
 
-# Backend Dependencies (server/package.json)
-# ===========================================
-express==5.2.1
-mongoose==9.2.4
-jsonwebtoken==9.0.3
-bcryptjs==3.0.3
-cors==2.8.6
-dotenv==17.3.1
+---
 
-# Installation Instructions
-# ==========================
-# 
-# Server:
-#   cd server
-#   npm install
-# 
-# Client:
-#   cd client
-#   npm install
-# 
-# Development:
-#   Terminal 1: cd server && npm run dev
-#   Terminal 2: cd client && npm run dev
+## 1. Frontend Requirements (`client` folder)
+The frontend is built with React 19, Vite, and Tailwind CSS.
+Change directory to the `client` folder and run `npm install` to get these packages:
+
+### Dependencies:
+- react (^19.2.0)
+- react-dom (^19.2.0)
+- react-router-dom (^7.13.1)
+- tailwindcss (^4.2.1)
+- @tailwindcss/vite (^4.2.1)
+
+### Dev Dependencies:
+- vite (^7.3.1)
+- @vitejs/plugin-react (^5.1.1)
+- eslint (^9.39.1)
+
+### To Run:
+cd client
+npm install
+npm run dev
+
+---
+
+## 2. Backend Requirements (`server` folder)
+The backend is an Express server connecting to MongoDB using Mongoose.
+Change directory to the `server` folder and run `npm install` to get these packages:
+
+### Dependencies:
+- express (^5.2.1)
+- mongoose (^9.2.4)
+- cors (^2.8.6)
+- dotenv (^17.3.1)
+- bcryptjs (^3.0.3)
+- jsonwebtoken (^9.0.3)
+
+### To Run:
+cd server
+npm install
+npm start (or node server.js)

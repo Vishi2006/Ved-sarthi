@@ -11,100 +11,65 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-20 border-b border-slate-100 bg-white/85 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-4">
-        {/* Logo */}
-        <NavLink to="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-500">
-            <span className="text-sm font-bold text-white">H</span>
-          </div>
-          <span className="text-lg font-semibold tracking-tight text-slate-900">
-            HealthAI
-          </span>
-        </NavLink>
+    <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-[100] flex items-center bg-[#F5EFE0]/70 backdrop-blur-[20px] saturate-180 border-neo shadow-neo rounded-full px-2 py-2 pl-6 w-max anim-nav-drop">
+      {/* Logo */}
+      <NavLink to="/" className="flex items-center mr-8">
+        <span className="font-syne font-extrabold text-[15px] text-neo-black tracking-[-0.5px] whitespace-nowrap">
+          HealthBridge
+        </span>
+        <span className="inline-block bg-neo-yellow border-[2px] border-neo-black rounded px-[6px] py-[1px] ml-1 text-[11px] font-space font-bold align-middle shadow-[2px_2px_0_var(--neo-black)] text-neo-black">
+          AI
+        </span>
+      </NavLink>
 
-        {/* Primary nav */}
-        <nav className="hidden flex-1 items-center gap-6 text-sm text-slate-600 md:flex">
-          <NavLink
+      {/* Primary nav */}
+      <div className="flex items-center gap-1">
+        <NavLink
             to="/upload-records"
-            className={({ isActive }) =>
-              `transition hover:text-slate-900 ${
-                isActive ? "font-semibold text-slate-900" : ""
-              }`
-            }
+            className="font-dm text-[13px] font-medium text-neo-black px-3.5 py-1.5 rounded-full transition-colors hover:bg-black/5"
             onClick={guardNav}
-          >
-            My Records
-          </NavLink>
-          <NavLink
+        >
+          My Records
+        </NavLink>
+        <NavLink
             to="/dashboard"
-            className={({ isActive }) =>
-              `transition hover:text-slate-900 ${
-                isActive ? "font-semibold text-slate-900" : ""
-              }`
-            }
+            className="font-dm text-[13px] font-medium text-neo-black px-3.5 py-1.5 rounded-full transition-colors hover:bg-black/5"
             onClick={guardNav}
-          >
-            Health Insights
-          </NavLink>
-          <NavLink
+        >
+          Insights
+        </NavLink>
+        <NavLink
             to="/appointments"
-            className={({ isActive }) =>
-              `transition hover:text-slate-900 ${
-                isActive ? "font-semibold text-slate-900" : ""
-              }`
-            }
+            className="font-dm text-[13px] font-medium text-neo-black px-3.5 py-1.5 rounded-full transition-colors hover:bg-black/5"
             onClick={guardNav}
-          >
-            Profile
-          </NavLink>
-        </nav>
-
-        {/* Search + actions */}
-        <div className="ml-auto flex items-center gap-3">
-          <div className="hidden items-center gap-2 rounded-full bg-slate-100 px-3 py-1.5 text-xs text-slate-500 md:flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              className="h-4 w-4 text-slate-400"
-            >
-              <circle cx="11" cy="11" r="6" />
-              <path d="m16 16 3.5 3.5" />
-            </svg>
-            <input
-              type="text"
-              placeholder="Search records..."
-              className="w-40 border-none bg-transparent text-xs text-slate-700 outline-none placeholder:text-slate-400"
-            />
-          </div>
-
-          {isAuthenticated ? (
-            <button
-              className="rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-slate-800"
-              onClick={logout}
-            >
-              Logout
-            </button>
-          ) : (
-            <button
-              className="rounded-full bg-teal-500 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-teal-600"
-              onClick={() => openAuthModal("register")}
-            >
-              Get Started
-            </button>
-          )}
-
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-xs font-semibold text-white">
-            {user?.name?.slice(0, 1)?.toUpperCase() || "U"}
-          </div>
-        </div>
+        >
+          Profile
+        </NavLink>
       </div>
-    </header>
+
+      {/* Actions */}
+      <div className="ml-2 flex items-center">
+        {isAuthenticated ? (
+          <button
+            className="font-syne font-bold text-[13px] bg-neo-black text-neo-white border-neo rounded-full px-5 py-2.5 shadow-[3px_3px_0_rgba(0,0,0,0.3)] transition-all hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[5px_5px_0_rgba(0,0,0,0.3)] flex items-center gap-2"
+            onClick={logout}
+          >
+            Logout
+            <div className="flex h-5 w-5 items-center justify-center rounded-full bg-neo-yellow border-[1.5px] border-neo-black text-[9px] font-bold text-neo-black">
+              {user?.name?.slice(0, 1)?.toUpperCase() || "U"}
+            </div>
+          </button>
+        ) : (
+          <button
+            className="font-syne font-bold text-[13px] bg-neo-black text-neo-white border-neo rounded-full px-5 py-2.5 shadow-[3px_3px_0_rgba(0,0,0,0.3)] transition-all hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[5px_5px_0_rgba(0,0,0,0.3)]"
+            onClick={() => openAuthModal("register")}
+          >
+            Get Early Access →
+          </button>
+        )}
+      </div>
+    </nav>
   );
 };
 
 export default Navbar;
-

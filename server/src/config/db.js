@@ -8,8 +8,15 @@ const connectDB = async () => {
 
   const dbName = process.env.MONGODB_DB || "healthmeet";
 
+  console.log("🔗 Connecting to MongoDB...");
   mongoose.set("strictQuery", true);
-  await mongoose.connect(uri, { dbName });
+  try {
+    await mongoose.connect(uri, { dbName });
+    console.log("✅ MongoDB connected successfully");
+  } catch (error) {
+    console.error("❌ MongoDB connection failed:", error.message);
+    throw error;
+  }
 };
 
 module.exports = { connectDB };

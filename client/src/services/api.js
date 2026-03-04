@@ -1,11 +1,12 @@
-const DEFAULT_BASE_URL = "http://localhost:5000";
+// In dev: Vite proxy forwards /api/* to localhost:5000 — base URL is empty (relative).
+// In prod: set VITE_API_URL=https://your-api-domain.com in client/.env
+const BASE_URL = import.meta.env.VITE_API_URL ?? "";
 
 export const apiFetch = async (
   path,
   { method = "GET", body, token, headers = {} } = {}
 ) => {
-  const baseUrl = import.meta.env.VITE_API_URL || DEFAULT_BASE_URL;
-  const url = `${baseUrl}${path.startsWith("/") ? path : `/${path}`}`;
+  const url = `${BASE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 
   const res = await fetch(url, {
     method,
