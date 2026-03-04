@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const AuthModal = () => {
   const {
@@ -14,6 +15,7 @@ const AuthModal = () => {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const title = useMemo(() => {
     return authMode === "register" ? "Create account" : "Welcome back";
@@ -42,6 +44,7 @@ const AuthModal = () => {
           password: form.password,
         });
       }
+      navigate("/dashboard");
     } catch (err) {
       setError(err?.message || "Authentication failed");
     } finally {

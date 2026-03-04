@@ -25,40 +25,48 @@ const Navbar = () => {
       {/* Primary nav */}
       <div className="flex items-center gap-1">
         <NavLink
-            to="/upload-records"
-            className="font-dm text-[13px] font-medium text-neo-black px-3.5 py-1.5 rounded-full transition-colors hover:bg-black/5"
-            onClick={guardNav}
+          to="/upload-records"
+          className="font-dm text-[13px] font-medium text-neo-black px-3.5 py-1.5 rounded-full transition-colors hover:bg-black/5"
+          onClick={guardNav}
         >
           My Records
         </NavLink>
         <NavLink
-            to="/dashboard"
-            className="font-dm text-[13px] font-medium text-neo-black px-3.5 py-1.5 rounded-full transition-colors hover:bg-black/5"
-            onClick={guardNav}
+          to="/dashboard"
+          className="font-dm text-[13px] font-medium text-neo-black px-3.5 py-1.5 rounded-full transition-colors hover:bg-black/5"
+          onClick={guardNav}
         >
           Insights
         </NavLink>
         <NavLink
-            to="/appointments"
-            className="font-dm text-[13px] font-medium text-neo-black px-3.5 py-1.5 rounded-full transition-colors hover:bg-black/5"
-            onClick={guardNav}
+          to="/appointments"
+          className="font-dm text-[13px] font-medium text-neo-black px-3.5 py-1.5 rounded-full transition-colors hover:bg-black/5"
+          onClick={guardNav}
         >
           Profile
         </NavLink>
       </div>
 
       {/* Actions */}
-      <div className="ml-2 flex items-center">
+      <div className="ml-2 flex items-center gap-3">
         {isAuthenticated ? (
-          <button
-            className="font-syne font-bold text-[13px] bg-neo-black text-neo-white border-neo rounded-full px-5 py-2.5 shadow-[3px_3px_0_rgba(0,0,0,0.3)] transition-all hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[5px_5px_0_rgba(0,0,0,0.3)] flex items-center gap-2"
-            onClick={logout}
-          >
-            Logout
-            <div className="flex h-5 w-5 items-center justify-center rounded-full bg-neo-yellow border-[1.5px] border-neo-black text-[9px] font-bold text-neo-black">
-              {user?.name?.slice(0, 1)?.toUpperCase() || "U"}
-            </div>
-          </button>
+          <>
+            <NavLink
+              to="/dashboard"
+              className="font-syne font-bold text-[13px] bg-neo-yellow text-neo-black border-neo rounded-full px-5 py-2.5 shadow-[3px_3px_0_var(--neo-black)] transition-all hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[5px_5px_0_var(--neo-black)] flex items-center gap-2"
+            >
+              Go to App →
+            </NavLink>
+            <button
+              className="font-syne font-bold text-[13px] bg-neo-black text-neo-white border-neo rounded-full px-5 py-2.5 shadow-[3px_3px_0_rgba(0,0,0,0.3)] transition-all hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[5px_5px_0_rgba(0,0,0,0.3)] flex items-center gap-2"
+              onClick={logout}
+            >
+              Logout
+              <div className="flex h-5 w-5 items-center justify-center rounded-full bg-neo-yellow border-[1.5px] border-neo-black text-[9px] font-bold text-neo-black">
+                {user?.name?.slice(0, 1)?.toUpperCase() || "U"}
+              </div>
+            </button>
+          </>
         ) : (
           <button
             className="font-syne font-bold text-[13px] bg-neo-black text-neo-white border-neo rounded-full px-5 py-2.5 shadow-[3px_3px_0_rgba(0,0,0,0.3)] transition-all hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[5px_5px_0_rgba(0,0,0,0.3)]"

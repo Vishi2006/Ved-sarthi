@@ -1,8 +1,12 @@
 import AppRoutes from "./routes/AppRoutes";
 import Navbar from "./components/Navbar";
 import AuthModal from "./components/AuthModal";
+import { useLocation } from "react-router-dom";
 
 const App = () => {
+  const location = useLocation();
+  const isDashboard = location.pathname === "/dashboard";
+
   return (
     <div className="min-h-screen relative font-dm">
       {/* LIQUID BG BLOBS */}
@@ -35,8 +39,8 @@ const App = () => {
       ></div>
 
       <div className="relative z-20 flex flex-col items-center">
-        <Navbar />
-        <main className="w-full max-w-[1280px] px-10 mx-auto mt-[80px] mb-20 relative">
+        {!isDashboard && <Navbar />}
+        <main className={`w-full max-w-[1280px] px-10 mx-auto relative ${isDashboard ? 'mt-0' : 'mt-[80px]'} mb-20`}>
           <AppRoutes />
         </main>
         <AuthModal />
