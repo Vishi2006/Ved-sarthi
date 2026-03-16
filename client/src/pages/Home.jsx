@@ -46,7 +46,7 @@ const Home = () => {
         }
       });
     }, { threshold: 0.12 });
-    
+
     document.querySelectorAll('.reveal, .feat-card, .tech-card, .how-card').forEach(el => observer.observe(el));
     return () => observer.disconnect();
   }, []);
@@ -76,7 +76,7 @@ const Home = () => {
     try {
       const token = localStorage.getItem("healthmeet_token");
       const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
-      
+
       const headers = {
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
       };
@@ -98,7 +98,7 @@ const Home = () => {
       } else {
         setUploadMessage("✅ Report analyzed successfully! Login to save it to your history.");
       }
-      
+
       setFile(null);
       if (fileInputRef.current) {
         fileInputRef.current.value = "";
@@ -129,14 +129,14 @@ const Home = () => {
           </p>
 
           <div className="flex items-center gap-3 anim-fade-up" style={{ animationDelay: '0.4s' }}>
-            <button 
+            <button
               className="group relative overflow-hidden font-syne font-bold text-[15px] bg-neo-black text-neo-white border-[2.5px] border-neo-black rounded-full px-8 py-4 shadow-[5px_5px_0_var(--neo-black)] transition-all hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[8px_8px_0_var(--neo-black)] hover:text-neo-black cursor-none"
               onClick={() => requireAuth("register")}
             >
               <span className="relative z-10 transition-colors">Upload a Report →</span>
               <div className="absolute inset-0 bg-neo-yellow -translate-x-full transition-transform duration-300 ease-out group-hover:translate-x-0 z-0 rounded-full"></div>
             </button>
-            <button 
+            <button
               className="font-dm font-medium text-[14px] text-neo-black flex items-center gap-2 py-3.5 border-b-2 border-neo-black transition-[gap] duration-200 hover:gap-3.5 cursor-none"
               onClick={() => requireAuth("login")}
             >
@@ -165,13 +165,13 @@ const Home = () => {
         <div className="anim-fade-up" style={{ animationDelay: '0.25s' }}>
           <div className="bg-white/45 backdrop-blur-[24px] border-2 border-white/80 rounded-[28px] p-7 shadow-clay-lg relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-[60%] bg-gradient-to-b from-white/50 to-transparent pointer-events-none rounded-t-[28px]"></div>
-            
+
             <div className="relative z-10">
               <div className="font-space font-bold text-[10px] uppercase tracking-[1px] text-min-grey mb-4">
                 // Report upload → triage → booking
               </div>
 
-              <label 
+              <label
                 htmlFor="home-upload"
                 className="group border-[2.5px] border-dashed border-black/25 rounded-[20px] p-8 text-center bg-white/30 transition-colors hover:border-neo-black hover:bg-white/50 mb-5 cursor-pointer block"
               >
@@ -253,7 +253,7 @@ const Home = () => {
               Core Features
             </div>
             <h2 className="font-syne font-extrabold text-[clamp(36px,4vw,52px)] tracking-[-2px] text-neo-black leading-[1.05]">
-              Everything you need.<br/>Nothing you don't.
+              Everything you need.<br />Nothing you don't.
             </h2>
           </div>
           <p className="font-dm font-light text-[14px] text-[#666] max-w-[260px] leading-[1.6]">
@@ -294,7 +294,7 @@ const Home = () => {
               AI Triage
             </div>
             <h2 className="font-syne font-extrabold text-[clamp(36px,4vw,52px)] tracking-[-2px] text-neo-black leading-[1.05]">
-              Not a diagnosis.<br/>A direction.
+              Not a diagnosis.<br />A direction.
             </h2>
             <p className="font-dm font-light text-[16px] text-[#444] leading-[1.7]">
               HealthBridge AI reads your report and asks targeted follow-up questions to understand your situation — then tells you which type of specialist to see. No guessing, no Googling symptoms at 2am.
@@ -314,58 +314,58 @@ const Home = () => {
           </div>
 
           <div className="bg-white/40 backdrop-blur-[24px] saturate-200 border-2 border-white/80 rounded-[28px] overflow-hidden shadow-clay-lg reveal opacity-0 translate-y-8 transition-all duration-700 delay-100 relative">
-             <div className="absolute top-0 left-0 right-0 h-[60%] bg-gradient-to-b from-white/30 to-transparent pointer-events-none rounded-t-[28px]"></div>
-             <div className="relative z-10 w-full">
-                <div className="bg-neo-black px-5 py-4 flex items-center gap-3">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full border-[1.5px] border-white/30 bg-neo-red"></div>
-                    <div className="w-2.5 h-2.5 rounded-full border-[1.5px] border-white/30 bg-neo-yellow"></div>
-                    <div className="w-2.5 h-2.5 rounded-full border-[1.5px] border-white/30 bg-clay-sage"></div>
-                  </div>
-                  <span className="font-space font-bold text-[11px] text-white/70 ml-1">HealthBridge AI Triage</span>
-                  <div className="ml-auto flex items-center gap-1.5 font-space text-[10px] text-clay-sage">
-                    <div className="w-1.5 h-1.5 bg-clay-sage rounded-full anim-pulse"></div> Active Session
+            <div className="absolute top-0 left-0 right-0 h-[60%] bg-gradient-to-b from-white/30 to-transparent pointer-events-none rounded-t-[28px]"></div>
+            <div className="relative z-10 w-full">
+              <div className="bg-neo-black px-5 py-4 flex items-center gap-3">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full border-[1.5px] border-white/30 bg-neo-red"></div>
+                  <div className="w-2.5 h-2.5 rounded-full border-[1.5px] border-white/30 bg-neo-yellow"></div>
+                  <div className="w-2.5 h-2.5 rounded-full border-[1.5px] border-white/30 bg-clay-sage"></div>
+                </div>
+                <span className="font-space font-bold text-[11px] text-white/70 ml-1">HealthBridge AI Triage</span>
+                <div className="ml-auto flex items-center gap-1.5 font-space text-[10px] text-clay-sage">
+                  <div className="w-1.5 h-1.5 bg-clay-sage rounded-full anim-pulse"></div> Active Session
+                </div>
+              </div>
+
+              <div className="p-5 flex flex-col gap-3.5 h-[340px] overflow-y-auto">
+                <div className="flex gap-2.5 items-end">
+                  <div className="w-[30px] h-[30px] rounded-[10px] border-2 border-neo-black flex items-center justify-center text-[13px] text-neo-black shrink-0 shadow-[2px_2px_0_var(--neo-black)] bg-clay-sky">🤖</div>
+                  <div>
+                    <div className="font-space font-bold text-[9px] text-min-grey mb-1 uppercase tracking-[0.5px]">HealthBridge AI</div>
+                    <div className="max-w-[85%] px-4 py-3 text-[13px] leading-[1.5] border-[1.5px] border-black/10 shadow-msg bg-white/65 backdrop-blur-[10px] rounded-[4px_18px_18px_18px] text-neo-black">
+                      I've read your CBC report. Your haemoglobin is 9.2 g/dL — below the normal range. How long have you been feeling fatigued or short of breath?
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-5 flex flex-col gap-3.5 h-[340px] overflow-y-auto">
-                  <div className="flex gap-2.5 items-end">
-                    <div className="w-[30px] h-[30px] rounded-[10px] border-2 border-neo-black flex items-center justify-center text-[13px] text-neo-black shrink-0 shadow-[2px_2px_0_var(--neo-black)] bg-clay-sky">🤖</div>
-                    <div>
-                      <div className="font-space font-bold text-[9px] text-min-grey mb-1 uppercase tracking-[0.5px]">HealthBridge AI</div>
-                      <div className="max-w-[85%] px-4 py-3 text-[13px] leading-[1.5] border-[1.5px] border-black/10 shadow-msg bg-white/65 backdrop-blur-[10px] rounded-[4px_18px_18px_18px] text-neo-black">
-                        I've read your CBC report. Your haemoglobin is 9.2 g/dL — below the normal range. How long have you been feeling fatigued or short of breath?
+                <div className="flex gap-2.5 items-end flex-row-reverse">
+                  <div className="w-[30px] h-[30px] rounded-[10px] border-2 border-neo-black flex items-center justify-center text-[13px] text-neo-black shrink-0 shadow-[2px_2px_0_var(--neo-black)] bg-clay-peach">👤</div>
+                  <div className="max-w-[85%] px-4 py-3 text-[13px] leading-[1.5] border border-transparent shadow-neo bg-neo-black text-neo-white rounded-[18px_18px_4px_18px]">
+                    About 3 weeks now. Also getting dizzy when I stand up quickly.
+                  </div>
+                </div>
+
+                <div className="flex gap-2.5 items-end">
+                  <div className="w-[30px] h-[30px] rounded-[10px] border-2 border-neo-black flex items-center justify-center text-[13px] text-neo-black shrink-0 shadow-[2px_2px_0_var(--neo-black)] bg-clay-sky">🤖</div>
+                  <div>
+                    <div className="font-space font-bold text-[9px] text-min-grey mb-1 uppercase tracking-[0.5px]">HealthBridge AI · Triage Complete</div>
+                    <div className="max-w-[85%] px-4 py-3 text-[13px] leading-[1.5] border-[1.5px] border-black/10 shadow-msg bg-white/65 backdrop-blur-[10px] rounded-[4px_18px_18px_18px] text-neo-black">
+                      Based on your report and responses, I recommend seeing one of these specialists. Please consult a licensed physician.
+                      <div className="flex flex-wrap gap-1.5 mt-2.5">
+                        <span className="font-syne font-bold text-[11px] text-neo-black bg-neo-yellow border-2 border-neo-black rounded-full px-3 py-1 shadow-[2px_2px_0_var(--neo-black)] cursor-none hover:-translate-y-[1px] hover:-translate-x-[1px] hover:shadow-[3px_3px_0_var(--neo-black)] transition-all">Haematologist</span>
+                        <span className="font-syne font-bold text-[11px] text-neo-black bg-clay-sage border-2 border-neo-black rounded-full px-3 py-1 shadow-[2px_2px_0_var(--neo-black)] cursor-none hover:-translate-y-[1px] hover:-translate-x-[1px] hover:shadow-[3px_3px_0_var(--neo-black)] transition-all">Internal Medicine</span>
                       </div>
                     </div>
                   </div>
-
-                  <div className="flex gap-2.5 items-end flex-row-reverse">
-                    <div className="w-[30px] h-[30px] rounded-[10px] border-2 border-neo-black flex items-center justify-center text-[13px] text-neo-black shrink-0 shadow-[2px_2px_0_var(--neo-black)] bg-clay-peach">👤</div>
-                    <div className="max-w-[85%] px-4 py-3 text-[13px] leading-[1.5] border border-transparent shadow-neo bg-neo-black text-neo-white rounded-[18px_18px_4px_18px]">
-                      About 3 weeks now. Also getting dizzy when I stand up quickly.
-                    </div>
-                  </div>
-
-                  <div className="flex gap-2.5 items-end">
-                    <div className="w-[30px] h-[30px] rounded-[10px] border-2 border-neo-black flex items-center justify-center text-[13px] text-neo-black shrink-0 shadow-[2px_2px_0_var(--neo-black)] bg-clay-sky">🤖</div>
-                    <div>
-                      <div className="font-space font-bold text-[9px] text-min-grey mb-1 uppercase tracking-[0.5px]">HealthBridge AI · Triage Complete</div>
-                      <div className="max-w-[85%] px-4 py-3 text-[13px] leading-[1.5] border-[1.5px] border-black/10 shadow-msg bg-white/65 backdrop-blur-[10px] rounded-[4px_18px_18px_18px] text-neo-black">
-                        Based on your report and responses, I recommend seeing one of these specialists. Please consult a licensed physician.
-                        <div className="flex flex-wrap gap-1.5 mt-2.5">
-                          <span className="font-syne font-bold text-[11px] text-neo-black bg-neo-yellow border-2 border-neo-black rounded-full px-3 py-1 shadow-[2px_2px_0_var(--neo-black)] cursor-none hover:-translate-y-[1px] hover:-translate-x-[1px] hover:shadow-[3px_3px_0_var(--neo-black)] transition-all">Haematologist</span>
-                          <span className="font-syne font-bold text-[11px] text-neo-black bg-clay-sage border-2 border-neo-black rounded-full px-3 py-1 shadow-[2px_2px_0_var(--neo-black)] cursor-none hover:-translate-y-[1px] hover:-translate-x-[1px] hover:shadow-[3px_3px_0_var(--neo-black)] transition-all">Internal Medicine</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
+              </div>
 
-                <div className="px-5 py-4 border-t-2 border-black/10 flex gap-2.5 items-center bg-white/30 backdrop-blur-[8px]">
-                  <input type="text" placeholder="Ask a follow-up question..." className="flex-1 bg-white/60 border-[1.5px] border-black/15 rounded-full px-4 py-2.5 font-dm text-[13px] text-neo-black outline-none placeholder:text-black/30 focus:border-neo-black focus:bg-white/80" disabled />
-                  <button className="w-[38px] h-[38px] bg-neo-black text-neo-white border-[2.5px] border-neo-black rounded-xl flex items-center justify-center text-[16px] shadow-[2px_2px_0_rgba(0,0,0,0.3)] opacity-50 cursor-not-allowed">↑</button>
-                </div>
-             </div>
+              <div className="px-5 py-4 border-t-2 border-black/10 flex gap-2.5 items-center bg-white/30 backdrop-blur-[8px]">
+                <input type="text" placeholder="Ask a follow-up question..." className="flex-1 bg-white/60 border-[1.5px] border-black/15 rounded-full px-4 py-2.5 font-dm text-[13px] text-neo-black outline-none placeholder:text-black/30 focus:border-neo-black focus:bg-white/80" disabled />
+                <button className="w-[38px] h-[38px] bg-neo-black text-neo-white border-[2.5px] border-neo-black rounded-xl flex items-center justify-center text-[16px] shadow-[2px_2px_0_rgba(0,0,0,0.3)] opacity-50 cursor-not-allowed">↑</button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -378,13 +378,13 @@ const Home = () => {
             The Flow
           </div>
           <h2 className="font-syne font-extrabold text-[clamp(36px,4vw,52px)] tracking-[-2px] text-neo-black leading-[1.05]">
-            Four steps.<br/>Zero confusion.
+            Four steps.<br />Zero confusion.
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12 relative">
           <div className="absolute top-[38px] left-[10%] right-[10%] h-[2.5px] z-0 hidden lg:block" style={{ backgroundImage: 'repeating-linear-gradient(to right, var(--neo-black) 0, var(--neo-black) 12px, transparent 12px, transparent 20px)' }}></div>
-          
+
           {[
             { num: 1, title: 'Upload Report', desc: 'PDF or image. Encrypted and stored securely in Firebase Storage.', color: 'bg-clay-sky' },
             { num: 2, title: 'AI Reads + Triages', desc: 'OCR extracts text. Gemini asks 4 questions and suggests the right specialist.', color: 'bg-clay-peach' },
@@ -408,7 +408,7 @@ const Home = () => {
             Tech Stack
           </div>
           <h2 className="font-syne font-extrabold text-[clamp(36px,4vw,52px)] tracking-[-2px] text-neo-black leading-[1.05]">
-            Every choice<br/>is intentional.
+            Every choice<br />is intentional.
           </h2>
         </div>
 
@@ -440,7 +440,7 @@ const Home = () => {
             Commission Model
           </div>
           <h2 className="font-syne font-extrabold text-[clamp(36px,4vw,52px)] tracking-[-2px] text-neo-black leading-[1.05]">
-            Zomato model.<br/>For healthcare.
+            Zomato model.<br />For healthcare.
           </h2>
         </div>
 
@@ -449,7 +449,7 @@ const Home = () => {
             <div className="absolute top-0 left-0 right-0 h-[50%] bg-gradient-to-b from-white/40 to-transparent pointer-events-none rounded-t-[28px]"></div>
             <div className="relative z-10">
               <div className="font-space font-bold text-[10px] uppercase tracking-[1px] text-min-grey mb-3">// How the split works</div>
-              <div className="font-syne font-extrabold text-[32px] tracking-[-1px] text-neo-black mb-1.5 leading-tight">10–15%<br/>Commission</div>
+              <div className="font-syne font-extrabold text-[32px] tracking-[-1px] text-neo-black mb-1.5 leading-tight">10–15%<br />Commission</div>
               <div className="font-dm text-[14px] text-[#666] mb-7">Patient pays full consultation fee. Platform retains commission. Doctor receives the rest — automatically logged on every booking.</div>
 
               <div className="flex flex-col gap-2.5">
@@ -472,7 +472,7 @@ const Home = () => {
           <div className="bg-neo-black border-[2.5px] border-neo-black rounded-[28px] p-9 shadow-neo-lg relative overflow-hidden reveal opacity-0 translate-y-8 transition-all duration-700 delay-200">
             <div className="relative z-10">
               <div className="font-space font-bold text-[10px] uppercase tracking-[1px] text-white/40 mb-3">// v1 → production path</div>
-              <div className="font-syne font-extrabold text-[32px] tracking-[-1px] text-neo-yellow mb-1.5 leading-tight">Sandbox<br/>→ Live</div>
+              <div className="font-syne font-extrabold text-[32px] tracking-[-1px] text-neo-yellow mb-1.5 leading-tight">Sandbox<br />→ Live</div>
               <div className="font-dm text-[14px] text-white/60 mb-7">Portfolio builds in Razorpay test mode. Commission is simulated and recorded in Firestore. Production flips to Razorpay Route for real payouts.</div>
 
               <div className="flex flex-col gap-2.5">
